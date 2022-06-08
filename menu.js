@@ -50,7 +50,8 @@ let pizza = {
 */
 
 //CODE HERE
-console.log(pizza.popularity)
+let pizzaPopularity = pizza.popularity
+console.log(pizzaPopularity)
 
 /*
     Second, log the second tag in your pizza's
@@ -60,7 +61,8 @@ console.log(pizza.popularity)
 */
 
 //CODE HERE
-console.log(pizza.tags[1])
+let secondPizzaTag = pizza.tags[1]
+console.log(secondPizzaTag)
 
 /*
     Third, destructure the price off of the
@@ -70,8 +72,8 @@ console.log(pizza.tags[1])
 */
 
 //CODE HERE
-let {price: newPrice} = pizza
-console.log(newPrice)
+let {price} = pizza
+console.log(price)
 
 /*
     Fourth, and last, destructure the category
@@ -98,40 +100,40 @@ console.log(newCategory)
 
 //CODE HERE
 let foodArr = [
-    sandwich = {
-        name: "club",
+    {
+        name: "sandwich",
         price: 9.99,
         category: "entree",
         popularity: 4.8,
         rating: 4.5,
         tags: ["classic", "favorite"]
     },
-    taco = {
-        name: "pork",
+    {
+        name: "taco",
         price: 4.99,
         category: "entree",
         popularity: 4.9,
         rating: 4.7,
         tags: ["spicy", "favorite"]
     },
-    wings = {
-        name: "honey bbq",
+    {
+        name: "wings",
         price: 10.99,
         category: "appetizer",
         popularity: 4.6,
         rating: 4.4,
         tags: ["classic", "saucy"]
     },
-    chips = {
-        name: "tortilla",
+    {
+        name: "chips",
         price: 3.99,
         category: "appetizer",
         popularity: 4.5,
         rating: 4.7,
         tags: ["crunchy", "favorite"]
     },
-    burrito = {
-        name: "asada",
+    {
+        name: "burrito",
         price: 11.99,
         category: "entree",
         popularity: 4.7,
@@ -154,13 +156,11 @@ let foodArr = [
 */
 
 //CODE HERE
-const filter = (array, callback) => {
-    //   arrayOfFood.filter.tags
-      return callback(array[tags])
-  
+function callback(element) {
+      return element.tags.includes('spicy')
   }
 
-const filteredFood = foodArr.filter(tags('spicy'))
+const filteredFood = foodArr.filter(callback)
 console.log(filteredFood)
 
 
@@ -205,13 +205,24 @@ console.log(filteredFood)
 */
 
 //CODE HERE
+const filterByProperty = function (property, number, type) {
+    const filteredArray = foodArr.filter((element) => {
+        if (type === 'above') {
+            return element[property] > number
+        } else if (type === 'below') {
+            return element[property] < number
+        }
+    })
+    return filteredArray
+}
 
 
 /*
-    Invoke the `filterByProperty` function passing
-    in a value for each paramter.
+Invoke the `filterByProperty` function passing
+in a value for each paramter.
 
-    You'll have to console.log to see the filtered array
+You'll have to console.log to see the filtered array
 */
 
 //CODE HERE
+console.log(filterByProperty('price', 5, 'above'))

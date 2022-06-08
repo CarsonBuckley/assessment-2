@@ -34,17 +34,14 @@ const cart = [
 ]
 
 //CODE HERE
-const calculateFoodPrices = (array) => {
-    array.reduce(function (x, y) {
-        return {x: x.price + y.price}; // returns object with property x
-      })
-
+function callbackFunc(previousValue, currentValue) {
+    return previousValue + currentValue.price
 }
 
 // var arr = [{x:1}, {x:2}, {x:4}];
 // var result = arr.reduce(function (acc, obj) { return acc + obj.price; }, 0);
 
-const summedPrice = cart.reduce(calculateFoodPrices)
+const summedPrice = cart.reduce(callbackFunc, 0)
 console.log(summedPrice)
 
 
@@ -64,8 +61,10 @@ console.log(summedPrice)
 */
 
 //CODE HERE
-
-
+function calcFinalPrice(cartTotal, couponValue, tax) {
+    let total = cartTotal + (tax * cartTotal) - couponValue
+    return total
+}
 
 //////////////////PROBLEM 3////////////////////
 /*  
@@ -89,7 +88,10 @@ console.log(summedPrice)
 
 /*
     TEXT ANSWER HERE
-
+    name: string
+    billingAddress: string
+    accountBalanceInDollars: number
+    isRewardsProgramMember: boolean
 */
 
 /*
@@ -98,3 +100,10 @@ console.log(summedPrice)
 */
 
 //CODE HERE
+const customerObj = {
+    name: 'Carson Buckley',
+    billingAddress: '801 street',
+    accountBalanceInDollars: 10.51,
+    isRewardsProgramMember: true
+} 
+console.log(customerObj)

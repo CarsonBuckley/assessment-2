@@ -131,9 +131,9 @@ const deals = [
 */
 
 //CODE HERE
-let dealsPercent = deals[0].title
-let tenPercent = dealsPercent.replace('15%', '10%')
-console.log(tenPercent)
+deals[0].title = deals[0].title.replace('15', '10')
+console.log(deals)
+
 
 
 /*
@@ -150,6 +150,5 @@ console.log(tenPercent)
 */
 
 //CODE HERE
-let dealsDesc = deals[1].desc.trim()
-let marchToApril = dealsDesc.replace('March', 'April')
-console.log(marchToApril)
+deals[1].desc= deals[1].desc.replace('March', 'April').trim()
+console.log(deals)
